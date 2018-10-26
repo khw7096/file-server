@@ -19,3 +19,4 @@ Go를 설치하신 후 다음을 실행하세요.
 go get github.com/studio2l/file-server
 ```
 
+명령이 잘 실행되었다면 $GOPATH/bin 아래에 file-server 프로그램이 설치됩니다.
