@@ -11,7 +11,10 @@ file-server -addr :80 -dir /some/dir
 
 이 명령은 localhost에 /some/dir을 바인딩한 파일 서버를 만듭니다.
 
-## 설치
+## 다운로드
+[Download](https://github.com/studio2l/file-server/releases/tag/v0.1)
+
+## Go를 활용한 설치
 
 Go를 설치하신 후 다음을 실행하세요.
 
