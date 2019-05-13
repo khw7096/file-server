@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -16,7 +17,13 @@ func main() {
 	flag.Parse()
 
 	http.Handle("/", http.FileServer(http.Dir(dir)))
-
-	err := http.ListenAndServe(addr, nil)
-	log.Fatal(err)
+	ip, err := externalIP()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("service start : http://%s%s\n", ip, addr)
+	err = http.ListenAndServe(addr, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
