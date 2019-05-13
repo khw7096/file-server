@@ -1,3 +1,3 @@
-module github.com/khw7096/file-server
+module github.com/studio2l/file-server
 
 go 1.12
