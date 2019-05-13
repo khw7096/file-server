@@ -1,14 +1,14 @@
 package main
 
 import (
-	"errors"
 	"net"
 )
 
-func externalIP() (string, error) {
+func serviceIP() (string, error) {
+	ip := "127.0.0.1"
 	ifaces, err := net.Interfaces()
 	if err != nil {
-		return "", err
+		return ip, err
 	}
 	for _, iface := range ifaces {
 		if iface.Flags&net.FlagUp == 0 {
@@ -19,7 +19,7 @@ func externalIP() (string, error) {
 		}
 		addrs, err := iface.Addrs()
 		if err != nil {
-			return "", err
+			return ip, err
 		}
 		for _, addr := range addrs {
 			var ip net.IP
@@ -39,5 +39,5 @@ func externalIP() (string, error) {
 			return ip.String(), nil
 		}
 	}
-	return "", errors.New("are you connected to the network?")
+	return ip, nil
 }

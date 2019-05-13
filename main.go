@@ -17,7 +17,7 @@ func main() {
 	flag.Parse()
 
 	http.Handle("/", http.FileServer(http.Dir(dir)))
-	ip, err := externalIP()
+	ip, err := serviceIP()
 	if err != nil {
 		log.Fatal(err)
 	}
